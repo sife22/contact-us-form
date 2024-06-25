@@ -32,7 +32,7 @@
             width: 100%;
             max-width: 600px;
             margin: 0 auto;
-            background: #09aad0;
+            background: black;
             padding: 20px;
             border-radius: 10px;
             color: #fff;
@@ -88,7 +88,7 @@
 <body>
 
     <?php
-    if (!empty($_POST["send"])) {
+    if ($_POST["send"]) {
         $userName = $_POST["userName"];
         $userEmail = $_POST["userEmail"];
         $userPhone = $_POST["userPhone"];
@@ -102,6 +102,8 @@
 
         if (mail($toEmail, $userName, $mailHeaders)) {
             $message = "Your contact information is received successfully.";
+        } else {
+            $message = "Il y a un problème";
         }
     }
     ?>
@@ -126,7 +128,7 @@
             </div>
             <div class="input-row">
                 <input type="submit" name="send" value="Submit">
-                <?php if (!empty($message)) { ?>
+                <?php if ($message) { ?>
                     <div class='success'>
                         <strong><?php echo $message; ?> </strong>
                     </div>
