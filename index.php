@@ -93,7 +93,7 @@
         $userEmail = $_POST["userEmail"];
         $userPhone = $_POST["userPhone"];
         $userMessage = $_POST["userMessage"];
-        $toEmail = "sifeddinehadi22@gmail.com";
+        $toEmail = "toemail@xxx.xxx";
 
         $mailHeaders = "Name: " . $userName .
             "\r\n Email: " . $userEmail  .
@@ -103,7 +103,7 @@
         if (mail($toEmail, $userName, $mailHeaders)) {
             $message = "Your contact information is received successfully.";
         } else {
-            $message = "Il y a un problème";
+            $message = "There is an issue";
         }
     }
     ?>
